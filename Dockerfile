@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 3000
 
 # Запуск проекта
-CMD ["npm", "run"]
+CMD ["npm", "start"]
