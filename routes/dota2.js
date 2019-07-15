@@ -7,6 +7,7 @@ const PRO_MATCHES = 'https://api.opendota.com/api/proMatches';
 /* GET proMatches listing. */
 router.get('/', async function (req, res, next) {
     try {
+        // FIXME переместить вызов в сервисы
         const response = await axios.get(PRO_MATCHES);
         res.send(response.data);
     } catch (e) {
