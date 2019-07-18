@@ -1,15 +1,13 @@
-var express = require('express');
-var router = express.Router();
-const axios = require('axios');
-
-const PRO_MATCHES = 'https://api.opendota.com/api/proMatches';
+const express = require('express');
+const router = express.Router();
+const DotaService = require('../services/DotaService');
+const dotaService = new DotaService();
 
 /* GET proMatches listing. */
 router.get('/', async function (req, res, next) {
     try {
-        // FIXME переместить вызов в сервисы
-        const response = await axios.get(PRO_MATCHES);
-        res.send(response.data);
+        const matches = await dotaService.getData();
+        res.send(matches);
     } catch (e) {
         next(e);
     }
