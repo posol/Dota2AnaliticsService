@@ -7,7 +7,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const dota2Router = require('./routes/dota2');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
