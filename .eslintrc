@@ -4,6 +4,7 @@
   },
   "extends": "airbnb",
   "rules": {
-    "no-use-before-define": ["error", { "functions": true, "classes": true }]
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "no-shadow": "off"
   }
 }
