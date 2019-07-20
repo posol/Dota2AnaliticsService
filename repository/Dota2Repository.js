@@ -1,6 +1,6 @@
 const pool = require('../common/db/pool');
 
-class DotaRepository {
+class Dota2Repository {
   static async findAll() {
     const res = await pool.query('SELECT * FROM public.matches');
     console.log(res.rows);
@@ -17,4 +17,4 @@ class DotaRepository {
   } */
 }
 
-module.exports = DotaRepository;
+module.exports = Dota2Repository;

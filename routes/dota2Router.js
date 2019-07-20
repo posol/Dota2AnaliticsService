@@ -1,5 +1,5 @@
 const express = require('express');
-const DotaService = require('../services/DotaService');
+const DotaService = require('../services/Dota2Service');
 
 const router = express.Router();
 

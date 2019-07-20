@@ -1,9 +1,9 @@
 const axios = require('axios');
-const DotaRepository = require('../repository/DotaRepository');
+const DotaRepository = require('../repository/Dota2Repository');
 
 const PRO_MATCHES = 'https://api.opendota.com/api/proMatches';
 
-class DotaService {
+class Dota2Service {
   static async getData() {
     const httpResponse = await axios.get(PRO_MATCHES);
     return httpResponse.data;
@@ -14,4 +14,4 @@ class DotaService {
   }
 }
 
-module.exports = DotaService;
+module.exports = Dota2Service;
