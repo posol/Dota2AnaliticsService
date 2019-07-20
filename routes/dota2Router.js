@@ -23,10 +23,10 @@ router.get('/testdb', async (req, res, next) => {
 
     const end = new Date() - start;
     const hrend = process.hrtime(hrstart);
-
-    result = {data: records, time: `Execution time: %dms' ${end}`, time2: `Execution time (hr): %ds ${hrend[0]}, %dms  ${hrend[1] / 1000000}`};
     console.info('Execution time: %dms', end);
     console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+
+    result = {data: records, time: `Execution time: %dms' ${end}`, time2: `Execution time (hr): %ds ${hrend[0]}, %dms  ${hrend[1] / 1000000}`};
     res.send(result);
   } catch (e) {
     next(e);
