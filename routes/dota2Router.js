@@ -16,8 +16,18 @@ router.get('/proMatches', async (req, res, next) => {
 
 router.get('/testdb', async (req, res, next) => {
   try {
-    const test = await dotaService.testDb();
-    res.send(test);
+    const start = new Date();
+    const hrstart = process.hrtime();
+
+    const records = await dotaService.testDb();
+
+    const end = new Date() - start;
+    const hrend = process.hrtime(hrstart);
+
+    result = {data: records, time: `Execution time: %dms' ${end}`, time2: `Execution time (hr): %ds ${hrend[0]}, %dms  ${hrend[1] / 1000000}`};
+    console.info('Execution time: %dms', end);
+    console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+    res.send(result);
   } catch (e) {
     next(e);
   }
