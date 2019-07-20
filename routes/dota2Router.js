@@ -23,4 +23,12 @@ router.get('/testdb', async (req, res, next) => {
   }
 });
 
+router.get('/testrest', async (req, res, next) => {
+  try {
+    res.send({ test: 'test' });
+  } catch (e) {
+    next(e);
+  }
+});
+
 module.exports = router;
