@@ -2,10 +2,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+//FIXME шедулер вынести в отдельный сервис
+const cron = require('./common/cron');
 const dota2Router = require('./routes/dota2Router');
 
 const app = express();
+cron.schedule();
 
 app.use(logger('dev'));
 app.use(express.json());

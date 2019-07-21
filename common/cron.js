@@ -1,0 +1,8 @@
+const cron = require('node-cron');
+const DotaService = require('../services/Dota2Service');
+
+module.exports.schedule = () => {
+  cron.schedule('*/5 * * * *', () => {
+    DotaService.saveProMatches();
+  });
+};
