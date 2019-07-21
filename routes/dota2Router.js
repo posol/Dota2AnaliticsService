@@ -7,8 +7,17 @@ const router = express.Router();
 /* GET proMatches listing. */
 router.get('/proMatches', async (req, res, next) => {
   try {
-    const matches = await DotaService.getData();
+    const matches = await DotaService.getLastProMatches();
     res.send(matches);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post('/proMatches', async (req, res, next) => {
+  try {
+    await DotaService.saveProMatches();
+    res.send('saved ok');
   } catch (e) {
     next(e);
   }
@@ -28,14 +37,6 @@ router.get('/testdb', async (req, res, next) => {
 
     const result = { data: records, time: `Execution time: %dms' ${end}`, time2: `Execution time (hr): %ds ${hrend[0]}, %dms  ${hrend[1] / 1000000}` };
     res.send(result);
-  } catch (e) {
-    next(e);
-  }
-});
-
-router.get('/testrest', async (req, res, next) => {
-  try {
-    res.send({ test: 'test' });
   } catch (e) {
     next(e);
   }

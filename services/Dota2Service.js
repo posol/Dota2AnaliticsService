@@ -1,5 +1,5 @@
 const axios = require('axios');
-const DotaRepository = require('../repository/Dota2Repository');
+const DotaRepository = require('../repository/Dota2MatchRepository');
 
 const PRO_MATCHES = 'https://api.opendota.com/api/proMatches';
 
@@ -7,6 +7,15 @@ class Dota2Service {
   static async getData() {
     const httpResponse = await axios.get(PRO_MATCHES);
     return httpResponse.data;
+  }
+
+  static async saveProMatches() {
+    const httpResponse = await axios.get(PRO_MATCHES);
+    await DotaRepository.save(httpResponse.data);
+  }
+
+  static async getLastProMatches() {
+    return DotaRepository.findWithLastDate();
   }
 
   static async testDb() {
