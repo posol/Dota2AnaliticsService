@@ -1,5 +1,5 @@
 const axios = require('axios');
-const DotaRepository = require('../repository/Dota2MatchRepository');
+const DotaRepository = require('../repository/dota2MatchRepository');
 
 const PRO_MATCHES = 'https://api.opendota.com/api/proMatches';
 
